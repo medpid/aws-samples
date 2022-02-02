@@ -1,4 +1,6 @@
-EKSCTL - is a new tool that can be used to manage AWS EKS service.
+# EKSCTL - is a new tool that can be used to manage AWS EKS service.
+
+**EKSCTL Site**
 
 https://eksctl.io/introduction/#installation
 
@@ -7,7 +9,8 @@ curl --silent --location "https://github.com/weaveworks/eksctl/releases/latest/d
 sudo mv /tmp/eksctl /usr/local/bin
 ```
 
-Bash
+**Bash**
+
 To enable bash completion, run the following, or put it in ~/.bashrc or ~/.profile:
 ```
 . <(eksctl completion bash)
