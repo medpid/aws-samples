@@ -34,4 +34,10 @@ echo 'export PATH=$PATH:$HOME/bin' >> ~/.bashrc
 
 kubectl version --short --client
 ```
-**Help/Commands**  https://kubernetes.io/docs/reference/kubectl/cheatsheet/
+**Help/Commands**  
+
+https://kubernetes.io/docs/reference/kubectl/cheatsheet/
+
+https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands 
+
+
