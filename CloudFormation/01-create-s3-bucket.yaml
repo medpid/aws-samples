@@ -2,7 +2,24 @@ Resources:
   HelloBucket:
     Type: AWS::S3::Bucket
     Properties:
+      BucketName: 'hello-world-bucket-2202' # Bucket name containing uppercase letter will fail.
       AccessControl: PublicRead
       WebsiteConfiguration:
         IndexDocument: index.html
         ErrorDocument: error.html
+      Tags:
+        - Key: Location
+          Value: Cahrlotte
+        - Key: City
+          Value: Fort Mill
+        - Key: State
+          Value: NC        
+    DeletionPolicy: Retain
+                
+Outputs:
+  WebsiteURL:
+    Value: ['!GetAtt', HelloBucket, WebsiteURL]
+  ARN:      
+    Value: ['!GetAtt', HelloBucket, Arn]
+  Description: 
+    Value: URL for the website created.
