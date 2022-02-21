@@ -2,6 +2,10 @@
 
 **https://eksctl.io/introduction/#installation**
 
+**Documentatoin for EKS Cluster using eksctl**
+
+```https://learn.acloud.guru/handson/f41da9b7-8408-4499-a605-e4e6870a554f```
+
 ```
 curl --silent --location "https://github.com/weaveworks/eksctl/releases/latest/download/eksctl_$(uname -s)_amd64.tar.gz" | tar xz -C /tmp
 sudo mv /tmp/eksctl /usr/local/bin

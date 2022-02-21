@@ -1,9 +1,23 @@
 **What is CIDR IP range?**
 * Classless Inter-Domain Routing (CIDR) is a range of IP addresses a network uses
 
+**AWS Config**
+* Execute rules on your resources for complaince monitoring.
+* Provides a time series graph to show the changes and relationships over a period of time.
+* You can only delete the rules from CLI only.
+* Command is ```aws configservice delete-configuration-recorder --configuration-recorder-name default```
+
+
 **OpsWorks -** 
 
-* 
+* AWS OpsWorks Chef Automate
+* Puppet Entrprise
+* OpsWorks Stacks - AWS
+    * manages applications on both AWS and on Prem
+    * Design layers that perform different functions
+    * Autoscaling and scheduled scaling
+    * Implements Chef Solo
+
 
 **AWS Inspector:** 
 * To perform security checks on compute cloud, mostly on EC2.
@@ -51,4 +65,11 @@
 
 
 
+
+
      
+**Helm With EKS(AWS)**
+* https://www.traveldiaries4u.com/authorsCollections/fullCollections/softwareCollections/awsCodeCommitHelmDeploy?fbclid=IwAR12Mi9BdVYtJ6O3lmsIAP-mulBnzky33zMKBlEmSujx9kW--zH3eW0Q5O0
+
+**Kafka by Confluent**
+* https://www.confluent.io/online-talks/microservices-and-apache-kafka/?utm_medium=paidsocial&utm_source=linkedin&utm_campaign=ch.paidsocial_tp.prs_tgt.past-arc-titles_rgn.namer_lgn.eng_con.microservices-3pt-series-webinar-on-demand&creative=mak-icd
