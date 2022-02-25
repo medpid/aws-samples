@@ -5,7 +5,10 @@
 **Documentatoin for EKS Cluster using eksctl**
 
 ```
-https://learn.acloud.guru/handson/f41da9b7-8408-4499-a605-e4e6870a554f
+https://learn.acloud.guru/handson/f41da9b7-8408-4499-a605-e4e6870a554f (Jaeger distributed tracing platform on EKS.)
+aws eks --region us-west-2 update-kubeconfig --name ps-eks-cluster
+https://aws.github.io/aws-eks-best-practices/
+
 ```
 
 ```
