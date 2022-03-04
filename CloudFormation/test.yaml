@@ -1,0 +1,22 @@
+AWSTemplateFormatVersion: 2010-09-09
+
+Parameters:
+  RegionName:
+    Description: 
+    Type: String
+    Default: us-east-1
+  Environment:
+    Description: 
+    Type: String
+    Default: dev
+
+Resources:
+  myVPC:
+    Type: AWS::EC2::VPC
+    Properties:
+      CidrBlock: 10.01.00.00/16
+      EnableDnsSupport: true
+      Tags:
+        - Key: Name
+          Value: LPL-Investor-Grp
+          
