@@ -1,7 +1,7 @@
 ```
-Kafka is a distributed even bus.
+Kafka is a distributed event bus.
 
-Kafka stream handles variety of patterns to handle data from event source.
+Kafka streams handle a variety of patterns to handle data from event sources.
 
 Kafka is built based on the follwing principles. 
 
