@@ -12,6 +12,58 @@
 https://raw.githubusercontent.com/natonic/CloudFormation-Deep-Dive/master/Labs/TemplateAnatomy/Template_Anatomy2.yaml
 
 
+**VSCODE Setup for CloudFormation**
+
+google-search - is to select and search plugin.
+
+CloudFormation Linter - supports linting for CFN yaml.
+
+YAML: https://marketplace.visualstudio.com/items?itemName=redhat.vscode-yaml
+
+Note: YAML needs a configuration to understand Intrinsic functions.
+
+Add the below snippet to the settings.json
+
+``` 
+"yaml.customTags": [
+        "!And",
+        "!And sequence",
+        "!If",
+        "!If sequence",
+        "!Not",
+        "!Not sequence",
+        "!Equals",
+        "!Equals sequence",
+        "!Or",
+        "!Or sequence",
+        "!FindInMap",
+        "!FindInMap sequence",
+        "!Base64",
+        "!Join",
+        "!Join sequence",
+        "!Cidr",
+        "!Ref",
+        "!Sub",
+        "!Sub sequence",
+        "!GetAtt",
+        "!GetAZs",
+        "!ImportValue",
+        "!ImportValue sequence",
+        "!Select",
+        "!Select sequence",
+        "!Split",
+        "!Split sequence",
+        "!Condition",
+        "!Transform sequence"
+    ]
+  ```
+
+**CloudFormation Limits**
+
+https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/cloudformation-limits.html
+
+
+
 CloudFormation Main Elements:
         Metadata
         Parameters

@@ -1,0 +1,89 @@
+AWSTemplateFormatVersion: "2010-09-09"
+Description: AWS CloudFormation template to create a new ECS Fargate First Run stack
+
+Resources:
+  ECS-VPC:
+    Type: AWS::EC2::VPC
+    Properties:
+      CidrBlock: 10.0.0.0/16
+      EnableDnsSupport: true
+      EnableDnsHostnames: true
+      InstanceTenancy: default
+      Tags:
+        - Key: keyname
+          Value: value
+
+  Subnet1:
+    Type: AWS::EC2::Subnet
+    Properties:
+      AvailabilityZone: !Select [0, !GetAZs ""]
+      VpcId: !Ref ECS-VPC
+      CidrBlock: !Sub "10.0.1.0/20"
+      MapPublicIpOnLaunch: true
+      Tags:
+        - Key: keyname
+          Value: value
+
+  Subnet2:
+    Type: AWS::EC2::Subnet
+    Properties:
+      AvailabilityZone: !Select [1, !GetAZs ""]
+      VpcId: !Ref ECS-VPC
+      CidrBlock: !Sub "10.0.2.0/20"
+      MapPublicIpOnLaunch: true
+      Tags:
+        - Key: keyname
+          Value: value
+
+  IgwName:
+    Type: AWS::EC2::InternetGateway
+    Properties:
+      Tags:
+        - Key: keyname
+          Value: value
+  AttachGateway:
+    Type: AWS::EC2::VPCGatewayAttachment
+    Properties:
+      VpcId: !Ref ECS-VPC
+      InternetGatewayId: !Ref IgwName
+
+  RouteTableName:
+    Type: AWS::EC2::RouteTable
+    Properties:
+      VpcId: !Ref ECS-VPC
+      Tags:
+        - Key: keyname
+          Value: value
+
+  RouteTableAssocName1:
+    Type: AWS::EC2::SubnetRouteTableAssociation
+    Properties:
+      SubnetId: !ref Subnet1
+      RouteTableId: !Ref RouteTableName
+  RouteTableAssocName2:
+    Type: AWS::EC2::SubnetRouteTableAssociation
+    Properties:
+      SubnetId: !ref Subnet2
+      RouteTableId: !Ref RouteTableName
+  InternetRouteName:
+    Type: AWS::EC2::Route
+    Properties:
+      RouteTableId: !Ref RouteTableName
+      DestinationCidrBlock: "0.0.0.0/0"
+      GatewayId: !Ref IgwName
+Output:      
+  ECS-VPC:
+    Description: Information about the VPC
+    Value: !Ref ECS-VPC
+    Export: 
+      Name: 'ECS-VPC'
+  Subnet1:
+    Description: Information about the Subnet1
+    Value: !Ref Subnet1
+    Export: 
+      Name: 'Subnet1'
+  Subnet2:
+    Description: Information about the Subnet3
+    Value: !Ref Subnet2
+    Export: 
+      Name: 'Subnet12'      
