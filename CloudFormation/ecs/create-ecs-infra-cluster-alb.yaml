@@ -18,12 +18,6 @@ Resources:
       Subnets:
         - !ImportValue "Subnet1"
         - !ImportValue "Subnet2"
-      HealthCheck:
-        Target: TCP:port or HTTPS|HTTP:80/
-        HealthyThreshold: 5
-        Interval: 2
-        Timeout: 30
-        UnhealthyThreshold: 5
 
   LoadBalancerListener:
     Type: AWS::ElasticLoadBalancingV2::Listener
