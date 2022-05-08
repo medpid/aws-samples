@@ -2,7 +2,7 @@ AWSTemplateFormatVersion: "2010-09-09"
 Description: AWS CloudFormation template to create a new ECS Fargate First Run stack
 
 Resources:
-  ECS-VPC:
+  ECSVPN:
     Type: AWS::EC2::VPC
     Properties:
       CidrBlock: 10.0.0.0/16
@@ -17,7 +17,7 @@ Resources:
     Type: AWS::EC2::Subnet
     Properties:
       AvailabilityZone: !Select [0, !GetAZs ""]
-      VpcId: !Ref ECS-VPC
+      VpcId: !Ref ECSVPN
       CidrBlock: !Sub "10.0.1.0/20"
       MapPublicIpOnLaunch: true
       Tags:
@@ -28,7 +28,7 @@ Resources:
     Type: AWS::EC2::Subnet
     Properties:
       AvailabilityZone: !Select [1, !GetAZs ""]
-      VpcId: !Ref ECS-VPC
+      VpcId: !Ref ECSVPN
       CidrBlock: !Sub "10.0.2.0/20"
       MapPublicIpOnLaunch: true
       Tags:
@@ -44,13 +44,13 @@ Resources:
   AttachGateway:
     Type: AWS::EC2::VPCGatewayAttachment
     Properties:
-      VpcId: !Ref ECS-VPC
+      VpcId: !Ref ECSVPN
       InternetGatewayId: !Ref IgwName
 
   RouteTableName:
     Type: AWS::EC2::RouteTable
     Properties:
-      VpcId: !Ref ECS-VPC
+      VpcId: !Ref ECSVPN
       Tags:
         - Key: keyname
           Value: value
@@ -71,19 +71,19 @@ Resources:
       RouteTableId: !Ref RouteTableName
       DestinationCidrBlock: "0.0.0.0/0"
       GatewayId: !Ref IgwName
-Outputs:      
-  ECS-VPC:
+Outputs:
+  ECSVPN:
     Description: Information about the VPC
-    Value: !Ref ECS-VPC
-    Export: 
-      Name: 'ECS-VPC'
+    Value: !Ref ECSVPN
+    Export:
+      Name: "ECSVPN"
   Subnet1:
     Description: Information about the Subnet1
     Value: !Ref Subnet1
-    Export: 
-      Name: 'Subnet1'
+    Export:
+      Name: "Subnet1"
   Subnet2:
     Description: Information about the Subnet3
     Value: !Ref Subnet2
-    Export: 
-      Name: 'Subnet12'      
+    Export:
+      Name: "Subnet12"
