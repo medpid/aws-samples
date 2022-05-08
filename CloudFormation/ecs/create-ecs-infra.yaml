@@ -58,12 +58,12 @@ Resources:
   RouteTableAssocName1:
     Type: AWS::EC2::SubnetRouteTableAssociation
     Properties:
-      SubnetId: !ref Subnet1
+      SubnetId: !Ref Subnet1
       RouteTableId: !Ref RouteTableName
   RouteTableAssocName2:
     Type: AWS::EC2::SubnetRouteTableAssociation
     Properties:
-      SubnetId: !ref Subnet2
+      SubnetId: !Ref Subnet2
       RouteTableId: !Ref RouteTableName
   InternetRouteName:
     Type: AWS::EC2::Route
