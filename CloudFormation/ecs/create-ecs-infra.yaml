@@ -71,7 +71,7 @@ Resources:
       RouteTableId: !Ref RouteTableName
       DestinationCidrBlock: "0.0.0.0/0"
       GatewayId: !Ref IgwName
-Output:      
+Outputs:      
   ECS-VPC:
     Description: Information about the VPC
     Value: !Ref ECS-VPC

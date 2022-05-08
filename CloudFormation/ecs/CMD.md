@@ -1,0 +1,1 @@
+```aws cloudformation create-stack --stack-name ECS-VPC --template-body file://$PWD/ecs/vpn.yaml```
