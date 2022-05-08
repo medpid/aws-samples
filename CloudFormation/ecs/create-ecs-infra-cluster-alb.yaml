@@ -39,7 +39,7 @@ Resources:
     Type: AWS::ElasticLoadBalancingV2::TargetGroup
     Properties:
       Name: Default
-      VpcId: !Ref "ECSVPC"
+      VpcId: !ImportValue ECSVPC
       Protocol: "HTTP"
       Port: "80"
 
@@ -48,7 +48,7 @@ Resources:
     Properties:
       GroupName: Load Balancer SG
       GroupDescription: Load Balancer SG
-      VpcId: !ImportValue "ECSVPC"
+      VpcId: !ImportValue ECSVPC
       SecurityGroupIngress:
         - CidrIp: 0.0.0.0/0
           IpProtocol: -1
@@ -58,13 +58,13 @@ Resources:
   CloudWatchLogsGroup:
     Type: AWS::Logs::LogGroup
     Properties:
-      LogGroupName: "apis"
+      LogGroupName: apis
       RetentionInDays: 7
 
   ContainerSecurityGroup:
     Type: AWS::EC2::SecurityGroup
     Properties:
-      VpcId: !ImportValue "ECSVPC"
+      VpcId: !ImportValue ECSVPC
       GroupDescription: for ecs containers
       SecurityGroupIngress:
         - SourceSecurityGroupId: !Ref "LoadBalancerSecurityGroup"
