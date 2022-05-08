@@ -10,8 +10,8 @@ Resources:
       EnableDnsHostnames: true
       InstanceTenancy: default
       Tags:
-        - Key: keyname
-          Value: value
+        - Key: Name
+          Value: MYECSVPC
 
   Subnet1:
     Type: AWS::EC2::Subnet
@@ -86,4 +86,4 @@ Outputs:
     Description: Information about the Subnet3
     Value: !Ref Subnet2
     Export:
-      Name: "Subnet12"
+      Name: "Subnet2"
